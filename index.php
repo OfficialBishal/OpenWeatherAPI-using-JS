@@ -99,7 +99,6 @@
         var currentDate = new Date();
         var timestamp = currentDate.getTime();
         var limit = 0;
-        var result = array;
 
         btn2.onclick = function() {
 
@@ -111,15 +110,15 @@
                 document.getElementById("status").innerHTML = '';
 
                 if (counter == 0) {
+                    const initialTime = timestamp;
+                    limit = initialTime + 1000 * 5;
                     appendStatus('Starting, Retrieving new data...');
                 } else if (timestamp > limit) {
+                    const initialTime = timestamp;
+                    limit = initialTime + 1000 * 5;
                     appendStatus('Time Limit Exceeded - Retrieving new data again...');
                     counter = 0;
                 }
-
-
-                const initialTime = timestamp;
-                limit = initialTime + 1000 * 5;
 
                 for (var i = 0; i < CityCodes.length; i++) {
                     const apiKey = '076ac7ca46c11b522b3f0708c8a36f03';
@@ -145,9 +144,7 @@
                         } = data;
                         var tempData = [name, id, main.temp, weather[0].description];
 
-                        
-
-                        // Store tempData(list) into collection of list
+                        //Store these lists to single object/variable
 
                         diplayWeatherData(tempData);
                     }
