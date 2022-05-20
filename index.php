@@ -10,7 +10,6 @@
     <div>
         <button id="toggle">Fetch City Codes</button>
     </div>
-    <br>
     <div>
         <button id="toggle2">Fetch Weather Details</button>
     </div>
@@ -63,6 +62,7 @@
                     mainContainer.appendChild(div);
                 }
             }
+            btn.style.display = "none";
             btn2.style.display = "block";
         };
 
