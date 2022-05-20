@@ -263,7 +263,7 @@
                 // Display cached
                 document.getElementById("status").innerHTML = '';
                 appendStatus(
-                    '<span class="statusNotExceed">Time Limit Not Exceeded</span> - <span class="cyaner">Retrieveing the cached data...</span>'
+                    '<span class="statusNotExceed">Time Limit Not Exceeded</span> - <span class="cyaner">Retrieving the cached data...</span>'
                 );
                 var min = (~~((limit - timestamp) / (1000 * 60)));
                 var sec = ~~((((limit - timestamp)) / 1000) % 60);
