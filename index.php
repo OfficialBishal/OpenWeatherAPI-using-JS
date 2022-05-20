@@ -15,12 +15,12 @@
     </div>
     <br>
 
-    <div>City Name and CityCodes</div>
+    <div><h3><u>City Name and CityCodes</u></h3></div>
     <br>
     <div id="myData"></div>
     <br>
 
-    <div>Weather Details</div>
+    <div><h3><u>Weather Details</u></h3></div>
     <br>
     <div id="status"></div>
     <br>
