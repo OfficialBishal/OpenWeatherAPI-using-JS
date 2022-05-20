@@ -212,13 +212,13 @@
 
                 if (counter == 0) {
                     const initialTime = timestamp;
-                    limit = initialTime + 1000 * 60;
+                    limit = initialTime + 1000 * 60 * 5;
                     appendStatus(
                         '<span class="greener">Starting</span>, <span class="cyaner">Retrieving new data...</span>'
                     );
                 } else if (timestamp > limit) {
                     const initialTime = timestamp;
-                    limit = initialTime + 1000 * 60;
+                    limit = initialTime + 1000 * 60 * 5;
                     appendStatus(
                         '<span class="statusExceed">Time Limit Exceeded</span> - <span class="cyaner">Retrieving new data again...</span>'
                     );
@@ -305,21 +305,6 @@
             }
 
         };
-    </script>
-
-    <script>
-        function loadJSON(callback) {
-            var xobj = new XMLHttpRequest();
-            xobj.overrideMimeType("application/json");
-            xobj.open('GET', 'cities.json', true); // Replace 'appDataServices' with the path to your file
-            xobj.onreadystatechange = function() {
-                if (xobj.readyState == 4 && xobj.status == "200") {
-                    // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-                    callback(xobj.responseText);
-                }
-            };
-            xobj.send(null);
-        }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
