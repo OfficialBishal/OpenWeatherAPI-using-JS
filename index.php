@@ -7,7 +7,6 @@
     <title>Fidenz Weather App</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
 
     <meta name="theme-color" content="#712cf9">
@@ -162,6 +161,7 @@
             btn2.style.display = "block";
         };
 
+
         // Fetch API
         // btn2.onclick = function () {
         //     var result =[]
@@ -212,13 +212,13 @@
 
                 if (counter == 0) {
                     const initialTime = timestamp;
-                    limit = initialTime + 1000 * 60 ;
+                    limit = initialTime + 1000 * 60;
                     appendStatus(
                         '<span class="greener">Starting</span>, <span class="cyaner">Retrieving new data...</span>'
                     );
                 } else if (timestamp > limit) {
                     const initialTime = timestamp;
-                    limit = initialTime + 1000 * 60 ;
+                    limit = initialTime + 1000 * 60;
                     appendStatus(
                         '<span class="statusExceed">Time Limit Exceeded</span> - <span class="cyaner">Retrieving new data again...</span>'
                     );
@@ -258,8 +258,6 @@
                         diplayWeatherData(tempData);
                     }
                 }
-
-
                 counter += 1;
             } else if (timestamp <= limit) {
                 // Display cached
@@ -268,7 +266,7 @@
                     '<span class="statusNotExceed">Time Limit Not Exceeded</span> - <span class="cyaner">Retrieveing the cached data...</span>'
                 );
                 var min = (~~((limit - timestamp) / (1000 * 60)));
-                var sec = ~~((((limit - timestamp))/1000) % 60);
+                var sec = ~~((((limit - timestamp)) / 1000) % 60);
                 appendStatus('Time before new retrieval: ' + min + ' min ' + sec + ' sec');
                 for (var i = 0; i < CityCodes.length; i++) {
                     diplayWeatherData(result[i]);
