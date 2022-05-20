@@ -9,6 +9,9 @@
     <br>
     <div>
         <button id="toggle">Fetch City Codes</button>
+    </div>
+    <br>
+    <div>
         <button id="toggle2">Fetch Weather Details</button>
     </div>
     <br>
@@ -28,12 +31,14 @@
     <script>
         const btn = document.getElementById("toggle");
         const btn2 = document.getElementById("toggle2");
+        btn2.style.display = "none";
 
         const Cities = [];
         const CityCodes = [];
 
         // Fetch City Code (cities.json)
         btn.onclick = function() {
+
             fetch('cities.json')
                 .then(function(response) {
                     return response.json();
@@ -50,8 +55,6 @@
                 for (var i = 0; i < data.List.length; i++) {
                     Cities.push(data.List[i]);
                     CityCodes.push(data.List[i].CityCode);
-
-
                 }
                 for (var i = 0; i < CityCodes.length; i++) {
                     var div = document.createElement("div");
@@ -60,6 +63,7 @@
                     mainContainer.appendChild(div);
                 }
             }
+            btn2.style.display = "block";
         };
 
         // Fetch API
