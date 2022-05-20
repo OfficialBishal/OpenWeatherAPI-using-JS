@@ -15,12 +15,16 @@
     </div>
     <br>
 
-    <div><h3><u>City Name and CityCodes</u></h3></div>
+    <div>
+        <h3><u>City Name and CityCodes</u></h3>
+    </div>
     <br>
     <div id="myData"></div>
     <br>
 
-    <div><h3><u>Weather Details</u></h3></div>
+    <div>
+        <h3><u>Weather Details</u></h3>
+    </div>
     <br>
     <div id="status"></div>
     <br>
@@ -103,6 +107,7 @@
         var currentDate = new Date();
         var timestamp = currentDate.getTime();
         var limit = 0;
+        var result = [];
 
         btn2.onclick = function() {
 
@@ -147,18 +152,25 @@
                             weather
                         } = data;
                         var tempData = [name, id, main.temp, weather[0].description];
+                        // console.log(tempData);
+                        result.push(tempData);
 
                         //Store these lists to single object/variable
-
                         diplayWeatherData(tempData);
                     }
                 }
 
+
                 counter += 1;
             } else if (timestamp <= limit) {
+                // Display cached
+                document.getElementById("status").innerHTML = '';
                 appendStatus('Time Limit Not Exceeded - Retrieveing the cached data...');
-
-                // Display Stored data Here
+                for (var i = 0; i < CityCodes.length; i++) {
+                    diplayWeatherData(result[i]);
+                }
+                // diplayWeatherData(result);
+                // console.log(result[1]);
             }
 
             function appendStatus(data) {
@@ -169,6 +181,14 @@
             }
 
             function diplayWeatherData(data) {
+                var mainContainer = document.getElementById("container");
+                var div = document.createElement("div");
+                var result_output = '<ul><li>Name: ' + data[0] + '</li><li>Id: ' + data[1] + '</li><li>Temp: ' + data[2] + '</li><li>Description: ' + data[3] + '</li></ul>';
+                div.innerHTML = result_output;
+                mainContainer.appendChild(div);
+            }
+
+            function diplayWeatherDataCache(data) {
                 var mainContainer = document.getElementById("container");
                 var div = document.createElement("div");
                 var result_output = '<ul><li>Name: ' + data[0] + '</li><li>Id: ' + data[1] + '</li><li>Temp: ' + data[2] + '</li><li>Description: ' + data[3] + '</li></ul>';
