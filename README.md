@@ -2,3 +2,5 @@
 Web Application that fetches Open Weather API using JS
 
 A simple Web App that fetches City codes from cities.json with reference to which the weather API is fetched and displayed to the web.
+
+Demo: [https://youtu.be/-uT9Hna0vIs](https://youtu.be/-uT9Hna0vIs)

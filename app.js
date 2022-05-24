@@ -55,13 +55,13 @@ btn2.onclick = function () {
 
         if (counter == 0) {
             const initialTime = timestamp;
-            limit = initialTime + 1000 * 60 * 5;
+            limit = initialTime + 1000 * 30;
             appendStatus(
                 '<span class="greener">Starting</span>, <span class="cyaner">Retrieving new data...</span>'
             );
         } else if (timestamp > limit) {
             const initialTime = timestamp;
-            limit = initialTime + 1000 * 60 * 5;
+            limit = initialTime + 1000 * 30;
             appendStatus(
                 '<span class="statusExceed">Time Limit Exceeded</span> - <span class="cyaner">Retrieving new data again...</span>'
             );
